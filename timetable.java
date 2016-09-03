@@ -123,6 +123,6 @@ class time
         hours -= SubTime.hours; // Subtract hours from your time with other time hours
 
         /* Set str according to new chagnes */
-        str = ((hours > 10) ? "0" + Integer.toString(hours) : Integer.toString(hours)) + ":" + ((minutes > 10) ? "0" + Integer.toString(minutes) : Integer.toString(minutes));
+        str = ((hours < 10) ? "0" + Integer.toString(hours) : Integer.toString(hours)) + ":" + ((minutes < 10) ? "0" + Integer.toString(minutes) : Integer.toString(minutes));
     }
 }
