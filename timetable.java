@@ -1,17 +1,21 @@
-// Copyright 2016 Sebastian Holler <jaroomgtavhype@gmail.com>
-// Copyright 2016 Patrick Pedersen <ctx.xda@gmail.com>
+/*
 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+ * Copyright 2016 Sebastian Holler <jaroomgtavhype@gmail.com>
+ * Copyright 2016 Patrick Pedersen <ctx.xda@gmail.com>
 
-//     http://www.apache.org/licenses/LICENSE-2.0
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+ *     http://www.apache.org/licenses/LICENSE-2.0
+
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+
+ */
 
 import Buttons.java;
 import java.util.Scanner;
@@ -20,50 +24,66 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane; 
 import javax.swing.JTextField;
 
-class lesson;
 class day;
+class time;
+class lesson;
+
+time addTime();
+time subTime();
 
 class timeTable
 {
+	Vector days = new Vector();
 
+	void addDay ()
+	{
+		days.addElement(new day);
+	}
+
+	void removeDay (int id)
+	{
+		if (days[i] != NULL)
+		{
+			days[i].remove();
+		}
+	}
 }
 
 class day
 {
-    private int nLessons;
-    private Vector lessons = new Vector();
+    Vector lessons = new Vector();
 
-    void addLesson (int from, int to, String name)
+    void addLesson (time from, time to, String name)
     {
-        lessons.addElement(new lesson(to - from, name))
+        lessons.addElement(new lesson(from, to, name);
     }
 
     void removeLesson (int id)
     {
         if (lesson[lesson] != NULL)
         {
-            lesson[lesson].remove;
+            lesson[lesson].remove();
         }
     }
 
-    void editLesson (time id, time from, time to, String name);
+    void editLesson (int id, time from, time to, String name)
     {
-        lesson[id].from = from;
+        lesson[i].set(from, to, name);
     }
-
-    int getNumLessons() {return nLessons};
 }
 
 class lesson
 {
-    lesson (time argFrom, time argTo, string nm) : from(argFrom), argTo(argTo), name(nm)) {};
+   lesson (time argFrom, time argTo, string nm) { set(argFrom, argTo, nm); }
 
     String name;
-   
+
     int from;
     int to;
-    int duration;
 
+    time duration;
+
+    set(time argFrom, time argTo, string nm) : from(argFrom), argTo(argTo), name(nm) { duration = subTimes(argTo, argFrom); }
 }
 
 /* Time Class to stores times */
@@ -125,4 +145,22 @@ class time
         /* Set str according to new chagnes */
         str = ((hours < 10) ? "0" + Integer.toString(hours) : Integer.toString(hours)) + ":" + ((minutes < 10) ? "0" + Integer.toString(minutes) : Integer.toString(minutes));
     }
+}
+
+time addTimes (time t1, time t2)
+{
+	time retTime = t1;
+
+	retTime.add(t2);
+
+	return retTime;
+}
+
+time subTimes (time t1, time t2)
+{
+	time retTime = t1;
+
+	retTime.sub(t2);
+
+	return retTime;
 }
